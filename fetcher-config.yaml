@@ -1,0 +1,134 @@
+knative-serving:
+  primary:
+    # We don't use `github:` as a source to avoid needing to manage tokens.
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "serving/previous"
+    include:
+      - ".*.yaml"
+    exclude:
+      - "monitoring.*"
+      - "serving.yaml"
+      - "serving-storage-version-migration.yaml"
+      - ".*domain.*"
+      - "release.yaml"
+      - ".*-nscert.yaml"
+net-istio:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "net-istio/previous"
+    include:
+      - "net-istio.yaml"
+net-contour:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "net-contour/previous"
+    include:
+      - "net-contour.yaml"
+net-kourier:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "net-kourier/previous"
+    include:
+      - "kourier.yaml"
+knative-eventing:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing/previous"
+    include:
+      - ".*.yaml"
+    exclude:
+      - ".*-pre-install-jobs.yaml"
+      - "eventing.yaml"
+      - "appender.yaml"
+      - "event-display.yaml"
+      - "heartbeats.yaml"
+      - "recordevents.yaml"
+      - "websocket-source.yaml"
+eventing-source:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing/previous"
+eventing-couchdb:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-couchdb/previous"
+    eventingService: couchdb
+    include:
+      - "couchdb.yaml"
+eventing-kafka:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-kafka/previous"
+    eventingService: kafka
+    include:
+      - "source.yaml"
+    exclude:
+      - "mt-source.yaml"
+eventing-github:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-github/previous"
+    eventingService: github
+    include:
+      - "github.yaml"
+    exclude:
+      - "mt-github.yaml"
+eventing-redis:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-redis/previous"
+    eventingService: redis
+    include:
+      - "redis-source.yaml"
+eventing-prometheus:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-prometheus/previous"
+    eventingService: prometheus
+    include:
+      - "prometheus-source.yaml"
+
+eventing-natss:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-natss/previous"
+    eventingService: natss
+    include:
+      - "eventing-natss.yaml"
+eventing-rabbitmq:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-rabbitmq/previous"
+    eventingService: rabbitmq
+    include:
+      - "rabbitmq-source.yaml"
+
+eventing-gitlab:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-gitlab/previous"
+    eventingService: gitlab
+    include:
+      - "gitlab.yaml"
+eventing-ceph:
+  primary:
+    s3:
+      bucket: "gs-noauth://knative-releases"
+      prefix: "eventing-ceph/previous"
+    eventingService: ceph
+    include:
+      - "ceph.yaml"
